@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AlphaVantage Data Request</title>
+</head>
+<body>
+<h2>Consulta de datos AlphaVantage</h2>
+<form id="dataForm">
+    <label for="function">Función:</label>
+    <select id="function" name="function" required>
+        <option value="TIME_SERIES_INTRADAY">Intraday</option>
+        <option value="TIME_SERIES_DAILY">Daily</option>
+        <option value="TIME_SERIES_WEEKLY">Weekly</option>
+        <option value="TIME_SERIES_MONTHLY">Monthly</option>
+    </select><br><br>
+
+    <label for="symbol">Symbol:</label>
+    <input type="text" id="symbol" name="symbol" value="IBM" required><br><br>
+
+    <button type="button" onclick="requestData()">Search</button>
+</form>
+
+<div id="results"></div>
+
+<script>
+    function requestData() {
+        var functionValue = document.getElementById("function").value;
+        var symbolValue = document.getElementById("symbol").value;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/ServerController?function=" + functionValue + "&symbol=" + symbolValue, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = xhr.responseText;
+                document.getElementById("results").innerHTML = "<pre>" + response + "</pre>";
+            }
+        };
+        xhr.send();
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
