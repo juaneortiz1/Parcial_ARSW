@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"edu.escuelaing.arsw.ASE.app.WebServer","l":"CacheQuery"},{"p":"edu.escuelaing.arsw.ASE.app.WebServer.Controller","l":"ServerController"},{"p":"edu.escuelaing.arsw.ASE.app.WebServer","l":"WebClient"}];updateSearchResults();
